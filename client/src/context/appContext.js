@@ -74,7 +74,7 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const authFetch = axios.create({
-    baseURL: "http://localhost:5000/api/v1",
+    baseURL: "/api/v1",
   });
 
   // authFetch.interceptors.request.use(
@@ -126,7 +126,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SETUP_USER_BEGIN });
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/auth/${endPoint}`,
+        `/api/v1/auth/${endPoint}`,
         currentUser
       );
       // console.log(response);
